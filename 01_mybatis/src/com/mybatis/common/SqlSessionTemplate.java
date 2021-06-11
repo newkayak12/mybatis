@@ -2,6 +2,7 @@ package com.mybatis.common;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,11 +30,10 @@ public class SqlSessionTemplate {
 						SqlSessionFactoryBuilder  sfb = new SqlSessionFactoryBuilder();
 	
 	//				sqlsessionfacotry클래스를 생성
-						
 						SqlSessionFactory sf = sfb.build(is);
 						
 	//					session을 생성
-						session = sf.openSession(false);
+							session = sf.openSession(false);
 						
 						
 				}catch(IOException e) {
@@ -42,5 +42,17 @@ public class SqlSessionTemplate {
 			
 		
 		return session;
+	}
+	
+	
+	
+	public static void getParamMap(Map<String,Object> param, Map<String, String[]> reqParam) {
+		for(String key : reqParam.keySet()) {
+			
+			param.put(key, reqParam.get(key)[0]);
+			
+		}
+		
+		
 	}
 }
