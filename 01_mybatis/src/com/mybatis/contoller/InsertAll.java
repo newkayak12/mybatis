@@ -48,8 +48,8 @@ public class InsertAll extends HttpServlet {
 		
 		
 		//builder
-//			student= Student.builder().studentName(name).studentAddr(addr).studentEmail(email).studentTel(phone).build();
-		student= Student.builder().student_Name(name).student_Addr(addr).student_Email(email).student_Tel(phone).build();
+			student= Student.builder().studentName(name).studentAddr(addr).studentEmail(email).studentTel(phone).build();
+//		student= Student.builder().student_Name(name).student_Addr(addr).student_Email(email).student_Tel(phone).build();
 			//매개변수 생성자를 기반으로 setter로 넣는..
 			
 		

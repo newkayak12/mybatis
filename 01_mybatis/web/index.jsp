@@ -82,5 +82,8 @@
 		<a href="${applicationScope.path }/selectCount">학생수 내놔₩</a>
 		<br>
 		<a href="${applicationScope.path }/selectStudent?no=5">1번 학생 호출</a>
+		
+	<h3>여러 개를 데이터에서 가져오기 </h3>
+		<a href="${applicationScope.path }/selectAllStu">학생 전체 호출</a>
 </body>
 </html>

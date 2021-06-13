@@ -2,6 +2,7 @@ package com.mybatis.model.service;
 
 import static com.mybatis.common.SqlSessionTemplate.getSession;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -139,6 +140,15 @@ SqlSession session = getSession();
 		SqlSession session = getSession();
 		Student s = dao.selectOne(session, no);
 		return s;
+	}
+
+	public List<Student> selectAll() {
+		// 
+		SqlSession session =getSession();
+		List<Student> list = dao.selectAll(session);
+		
+		session.close();
+		return list;
 	}
 	
 }

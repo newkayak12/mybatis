@@ -1,5 +1,6 @@
 package com.mybatis.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -59,13 +60,16 @@ public class MybatisDao {
 		//select 쿼리를 실행한 결과가 1개 이상이라면 >> selectList ==list 단, 제네릭 타입을 정할 수 있다.
 		//selectMap == map
 		
-		
-		
 	}
 
 	public Student selectOne(SqlSession session, int no) {
 		
 		return session.selectOne("student.selectOne", no);
+	}
+
+	public List<Student> selectAll(SqlSession session) {
+		List<Student> list = session.selectList("selectAll");
+		return list;
 	}
 	
 	

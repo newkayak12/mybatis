@@ -1,6 +1,8 @@
 package com.mybatis.contoller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +13,16 @@ import com.mybatis.model.service.MybatisService;
 import com.mybatis.model.vo.Student;
 
 /**
- * Servlet implementation class UpdateStudent
+ * Servlet implementation class SelectAllStudent
  */
-@WebServlet("/paramMybatis/update")
-public class UpdateStudent extends HttpServlet {
+@WebServlet("/selectAllStu")
+public class SelectAllStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateStudent() {
+    public SelectAllStudent() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,17 +32,12 @@ public class UpdateStudent extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		Student s = Student.builder().studentName(request.getParameter("name")).studentTel(request.getParameter("tel")).studentAddr(request.getParameter("addr")).build();
-//		Student s = Student.builder().student_Name(request.getParameter("name")).student_Tel(request.getParameter("tel")).student_Addr(request.getParameter("addr")).build();
+	
+		List<Student> list = new MybatisService().selectAll();
+		System.out.println(list);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/selectall.jsp").forward(request, response);
 		
-			/*
-			 * 
-			 * Map<String,Object param = new HashMap();
-			 * 
-			 */
-		
-			response.getWriter().append(new MybatisService().update(s)>0? "success":"fail");
 	}
 
 	/**

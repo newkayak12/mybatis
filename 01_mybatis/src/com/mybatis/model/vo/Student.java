@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 //set~를 한 줄로...?
 public class Student {
 	
-	private int student_No;
-	private String student_Name, student_Tel, student_Addr, student_Email;
-	private Date reg_Date;
+	private int studentNo;
+	private String studentName, studentTel, studentAddr, studentEmail;
+	private Date regDate;
 	
 	
 	

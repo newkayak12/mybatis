@@ -20,11 +20,11 @@
 		</tr>
 		
 		<tr>
-			<td>${student.student_Name }</td>
-			<td>${student.student_Tel }</td>
-			<td>${student.student_Email }</td>
-			<td>${student.student_Addr }</td>
-			<td>${student.reg_Date }</td>
+			<td>${student.studentName }</td>
+			<td>${student.studentTel }</td>
+			<td>${student.studentEmail }</td>
+			<td>${student.studentAddr }</td>
+			<td>${student.regDate }</td>
 		</tr>
 	</table>
 
