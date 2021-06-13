@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	
+	
+	<typeAliases>
+		<typeAlias type="com.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.board.model.vo.Board" alias="Board"/>	
+		<typeAlias type="com.admin.model.vo.Admin" alias="Admin"/>
+		<typeAlias type="com.notice.model.vo.Notice" alias="Notice"/>
+	</typeAliases>
+	
+	<environments default="DB">
+		<environment id="DB">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@rclass.iptime.org:8877:xe"/>
+				<property name="username" value="webtest"/>
+				<property name="password" value="webtest"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	
+	<mappers>
+		<mapper resource="/mappers/member-mappers.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
+		<mapper resource="/mappers/notice-mapper.xml"/>
+	</mappers>
+</configuration>

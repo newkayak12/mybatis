@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="board">
+	
+	<resultMap type="com.board.model.vo.Board" id="board">
+		<id property="boardNo" column="board_no"></id>
+		<result property="boardTitle" column="board_title"/>
+		<result property="boardWriter" column="board_writer"/>
+		<result property="boardContent" column="board_content"/>
+		<result property="boardOriginalFileName" column="board_original_filename"/>
+		<result property="boardRenameFileName" column="board_renamed_file"/>
+		<result property="boardDate" column="board_date"/>
+		<result property="boardReadCount" column="board_readcount"/>
+	</resultMap>
+	
+	
+	
+	
+	
+	
+	<select id="selectAll" parameterType="hashMap" resultMap="board">
+		select * from (select rownum as rnum, a.* from ( select * from board order by BOARD_DATE desc) a) where rnum between #{cPage} and #{numPerPage}
+	</select>
+	
+	<select id ="boardDetail" parameterType="_int" resultMap="board">
+		select * from board where BOARD_NO = #{no}
+	</select>
+	
+</mapper>
