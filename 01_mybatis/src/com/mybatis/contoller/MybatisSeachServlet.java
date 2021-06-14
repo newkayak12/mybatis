@@ -1,7 +1,6 @@
 package com.mybatis.contoller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +12,16 @@ import com.mybatis.model.service.MybatisService;
 import com.mybatis.model.vo.Student;
 
 /**
- * Servlet implementation class SelectAllStudent
+ * Servlet implementation class MybatisSeachServlet
  */
-@WebServlet("/selectAllStu")
-public class SelectAllStudent extends HttpServlet {
+@WebServlet("/searchName")
+public class MybatisSeachServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllStudent() {
+    public MybatisSeachServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +31,11 @@ public class SelectAllStudent extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-		List<Student> list = new MybatisService().selectAll();
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/selectall.jsp").forward(request, response);
+		String keyword = request.getParameter("searchKeyword");
+		Student student = new MybatisService().searchKeyword(keyword);
 		
+		request.setAttribute("i", student);
+		request.getRequestDispatcher("/views/studentOne.jsp").forward(request, response);
 	}
 
 	/**

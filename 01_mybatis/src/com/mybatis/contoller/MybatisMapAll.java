@@ -2,6 +2,7 @@ package com.mybatis.contoller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mybatis.model.service.MybatisService;
-import com.mybatis.model.vo.Student;
 
 /**
- * Servlet implementation class SelectAllStudent
+ * Servlet implementation class MybatisMapAll
  */
-@WebServlet("/selectAllStu")
-public class SelectAllStudent extends HttpServlet {
+@WebServlet("/mapandall")
+public class MybatisMapAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectAllStudent() {
+    public MybatisMapAll() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +32,10 @@ public class SelectAllStudent extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
-		List<Student> list = new MybatisService().selectAll();
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/selectall.jsp").forward(request, response);
+		List<Map> list = new MybatisService().mappAll();
 		
+		request.setAttribute("result",list);
+		request.getRequestDispatcher("/views/mapAllResult.jsp").forward(request, response);
 	}
 
 	/**

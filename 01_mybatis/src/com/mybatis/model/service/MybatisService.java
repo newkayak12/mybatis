@@ -150,5 +150,35 @@ SqlSession session = getSession();
 		session.close();
 		return list;
 	}
+
+	public Map selectMap(int no) {
+		// TODO Auto-generated method stub
+		
+		SqlSession session = getSession();
+		
+		
+		Map student =  dao.selectMap( session , no);
+		
+		
+		session.close();
+		return student;
+	}
+
+	public Student searchKeyword(String keyword) {
+		
+		SqlSession session = getSession();
+		Student student = dao.searchKeyword(session, keyword);
+		session.close();
+		return student;
+	}
+
+	public List<Map> mappAll() {
+		// TODO Auto-generated method stub
+		
+		SqlSession session = getSession();
+		List<Map> list = dao.mapAll(session);
+		session.close();
+		return list;
+	}
 	
 }

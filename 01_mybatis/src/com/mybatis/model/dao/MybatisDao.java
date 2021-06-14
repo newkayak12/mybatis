@@ -68,8 +68,25 @@ public class MybatisDao {
 	}
 
 	public List<Student> selectAll(SqlSession session) {
-		List<Student> list = session.selectList("selectAll");
+		List<Student> list = session.selectList("student.selectAll");
+		
+		
 		return list;
+	}
+
+	public Map selectMap(SqlSession session, int no) {
+		
+		return session.selectOne("student.selectMap", no);
+	}
+
+	public Student searchKeyword(SqlSession session, String keyword) {
+		// TODO Auto-generated method stub
+		return session.selectOne("student.searchKeyword",keyword);
+	}
+
+	public List<Map> mapAll(SqlSession session) {
+		// TODO Auto-generated method stub
+		return session.selectList("student.mapAll");
 	}
 	
 	

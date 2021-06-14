@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import = "java.io.File" %>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -8,6 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+</script>
 <meta charset="UTF-8">
 <title>MyBatis</title>
 </head>
@@ -79,11 +82,34 @@
 		
 	<h3>기본 select문 사용해서 데이터 가져오기</h3>
 		<h4>student table의 학생 수 가져오기</h4>
-		<a href="${applicationScope.path }/selectCount">학생수 내놔₩</a>
+		<a href="${applicationScope.path }/selectCount">학생수 내놔</a>
 		<br>
 		<a href="${applicationScope.path }/selectStudent?no=5">1번 학생 호출</a>
 		
 	<h3>여러 개를 데이터에서 가져오기 </h3>
 		<a href="${applicationScope.path }/selectAllStu">학생 전체 호출</a>
+		
+	<h3>이름으로 검색하기</h3>
+		<form action ="${applicationScope.path }/searchName">
+			이름 : <input type="text" name="searchKeyword" >
+			<input type="submit" value="제출">
+		</form>	
+		
+		
+		
+	<h2>객체를 이용하지 않고 data가져오기</h2>	
+	<pre>
+		map으로 vo 대신 쓸 수 있다. 
+		map (키:값)
+		
+		Map > key컬럼명 value값
+	</pre>
+	
+		<a href="${applicationScope.path }/searchMap?no=5">map으로 하나 가져오기</a>
+
+
+	<h3>map으로 여러 개 받아오기</h3>
+	
+	<a href="${applicationScope.path }/mapandall">map으로 여러 개 받아오기</a>
 </body>
 </html>
