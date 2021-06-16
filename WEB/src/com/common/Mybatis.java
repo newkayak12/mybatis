@@ -20,7 +20,7 @@ public class Mybatis {
 						InputStream is = Resources.getResourceAsStream(path);
 						SqlSessionFactory factory =  builder.build(is);
 						
-							session = factory.openSession();
+							session = factory.openSession(false);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

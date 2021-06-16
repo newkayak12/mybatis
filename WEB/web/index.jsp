@@ -274,7 +274,7 @@
 	 		const fn_modify = () =>{
 	 			$.ajax({
 	 				url:"${applicationScope.root}/modify",
-	 				data:{"name":$("#name").val(), "phone":$("#phone").val()},
+ 	 				data:{"name":$("#name").val(), "phone":$("#phone").val()},
 	 				success:data=>{
 	 					$("#resultenroll").text(data)
 	 					view();

@@ -101,7 +101,7 @@
 	<h2>객체를 이용하지 않고 data가져오기</h2>	
 	<pre>
 		map으로 vo 대신 쓸 수 있다. 
-		map (키:값)
+		map ( 키 : 값 )
 		
 		Map > key컬럼명 value값
 	</pre>
