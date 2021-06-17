@@ -9,6 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <h2>result</h2>
@@ -93,6 +105,46 @@
 				</td>
 			
 			</tr>
+			
+			<tr>
+				<th>
+					부서별 검색
+				</th>
+				<td colspan="2">
+					<label>
+						<input type="checkbox" name="deptcode" value="D1"> 인사 관리
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D2"> 회계관리부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D3"> 마케팅부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D4"> 국내영업부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D5"> 해외영업1부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D6"> 해외영업2부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D7"> 해외영업3부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D8"> 기술 지원부
+					</label>
+					<label>
+						<input type="checkbox" name="deptcode" value="D9"> 총무부
+					</label>
+					<label>
+					</label>
+					
+				</td>
+				
+				
+			</tr>
 			<tr>
 				<td colspan="3">
 					<input type="submit" value="조회">
@@ -152,9 +204,10 @@
 						<td colspan="14"></td>
 					</c:otherwise>
 				</c:choose>
-				
-				
 		</table>
+	</div>
+	<div id="pageBar-container">
+		${requestScope.pageBar }
 	</div>
 </body>
 </html>

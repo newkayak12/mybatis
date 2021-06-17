@@ -14,6 +14,15 @@
 		<h2>전체 회원 조회</h2>
 		<a href="${applicationScope.path}/selectall"> select All</a>
 		
-	
+		
+		<br><br>
+		
+		<a href="${applicationScope.path }/selectOneEmp?no=200">사원조회</a>
+		
+		
+		<br><br>
+		
+		<a href="${applicationScope.path }/boardView?no=46">보드뷰</a>
+		
 	</body>
 </html>
