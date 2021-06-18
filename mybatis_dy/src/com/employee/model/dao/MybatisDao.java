@@ -19,12 +19,12 @@ public class MybatisDao {
 //		RowBounds 클래스는 생성할 때 매개변수 값으로 page의 범위를 결정
 //		2개의 매개변수를 가짐 offset == (cPage-1)*numPerPage  limit ==  numPerPage
 		
-		return session.selectList("emp.selectAll",null,new RowBounds((cPage-1)*numPerPage+1, numPerPage));
+		return session.selectList("emp.selectAll",null,new RowBounds((cPage-1)*numPerPage, numPerPage));
 	}
 
 	public List<Employee> conditionalSearch(SqlSession session, Map<String, Object> parameter, int cPage, int numPerPage) {
 		// TODO Auto-generated method stub
-		return session.selectList("emp.conditionalSearch", parameter, new RowBounds((cPage-1)*numPerPage+1, numPerPage));
+		return session.selectList("emp.conditionalSearch", parameter, new RowBounds((cPage-1)*numPerPage, numPerPage));
 		
 	}
 

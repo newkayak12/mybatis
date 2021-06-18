@@ -45,7 +45,7 @@ public class SearchEmpSevlet extends HttpServlet {
 		String hiredate = request.getParameter("hiredate");
 		String h_le_ge = request.getParameter("h_le_ge");
 		String deptcode[] =request.getParameterValues("deptcode");
-		
+		System.out.println(gender);
 		
 		
 		
@@ -82,7 +82,7 @@ public class SearchEmpSevlet extends HttpServlet {
 		int pageEnd = pageNo+pageBarSize-1;
 		List<Employee> list = new MybatisService().conditionalSearch(parameter,cPage,numPerPage);
 		
-		System.out.println(totalData+":");
+		
 		
 		String pageBar="<ul class='pagination justify-content-center pagination-sm'>";
 				
@@ -111,8 +111,9 @@ public class SearchEmpSevlet extends HttpServlet {
 					pageNo++;
 				}
 				
+				
 				if(pageNo>totalPage) {
-					pageBar += "<li class='page-item' > <a href='#' class='page-link' disabled  >다음</a> </li>";
+					pageBar += "<li class='page-item disabled' > <a href='#' class='page-link'  tabindex='-1' >다음</a> </li>";
 				} else {
 					pageBar += "<li class='page-item' >";
 					pageBar+= " <a class='page-link' href= 'javascript:fn_page("+pageNo+")' >다음</a>";
@@ -133,16 +134,6 @@ public class SearchEmpSevlet extends HttpServlet {
 		
 		pageBar+= "<script> function fn_page(cPage){ location.assign('"+request.getRequestURI()+"?cPage='+cPage+'&gender="+gender+"&keyword="+keyword+"&type="+type+"&salary="+salary+"&le_ge="+le_ge+"&hiredate="+hiredate+"&h_le_ge="+h_le_ge+dept+"')}</script>";
 		
-		
-//		request.setAttribute("gender",gender);
-//		request.setAttribute("keyword",keyword);
-//		request.setAttribute("type",type);
-//		request.setAttribute("salary",salary);
-//		request.setAttribute("le_ge",le_ge);
-//		request.setAttribute("hiredate",hiredate);
-//		request.setAttribute("h_le_ge",h_le_ge);
-//		request.setAttribute("detpcode", deptcode);
-//		request.setAttribute("pageBar", pageBar);
 			request.setAttribute("list", list);
 			request.setAttribute("cPage", cPage);
 			request.setAttribute("pageBar", pageBar);
